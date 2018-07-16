@@ -25,8 +25,8 @@ include "header.php";
 				<td>
 				<select name="kategori" id="select">
 				<?php
-				$query = mysql_query("SELECT * FROM kategori_perlombaan");
-				while($row=mysql_fetch_array($query)){
+				$query = mysqli_query($konek, "SELECT * FROM kategori_perlombaan");
+				while($row=mysqli_fetch_array($query)){
 					echo "<option value='".$row['KD_KATEGORI']."'>".$row['NAMA_KATEGORI']."</option>";
 				}
 				?>

@@ -4,7 +4,7 @@ include "header.php";
 <div id="main-tengah">
 	<div class="batas">
 		
-		<h1>Perlombaan</h1>
+		<h1>Daftar Perlombaan</h1>
 		<div class="ijo" style="height:5px;width:100%;"></div>
 		<br>
 		<div align="center">
@@ -36,9 +36,9 @@ include "header.php";
 			$p=1;
 		}
 		$of=$batas*($p-1);
-		$query = mysql_query("SELECT * FROM perlombaan ORDER BY NAMA_PERLOMBAAN ASC LIMIT $of,$batas");
+		$query = mysqli_query($konek, "SELECT * FROM perlombaan ORDER BY NAMA_PERLOMBAAN ASC LIMIT $of,$batas");
 		$j=1;
-		while($row=mysql_fetch_array($query)){
+		while($row=mysqli_fetch_array($query)){
 		if($j%2!=0){
 		?>
 			<tr>
@@ -97,8 +97,8 @@ include "header.php";
 			<td colspan="6">
 				<center>
 				<?php
-				$y=mysql_query("select *from perlombaan");
-				$je=mysql_num_rows($y);
+				$y=mysqli_query($konek, "select *from perlombaan");
+				$je=mysqli_num_rows($y);
 				$jum=ceil($je/$batas);
 				for($u=1;$u<=$jum;$u++){
 					if($u==$p){
