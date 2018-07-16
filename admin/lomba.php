@@ -4,7 +4,7 @@ include "header.php";
 <div id="main-tengah">
 	<div class="batas">
 		
-		<h1>Film</h1>
+		<h1>Perlombaan</h1>
 		<div class="ijo" style="height:5px;width:100%;"></div>
 		<br>
 		<div align="center">
