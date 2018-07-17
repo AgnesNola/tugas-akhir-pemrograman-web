@@ -3,19 +3,15 @@ include "header.php";
 ?>
 <div id="main-tengah">		
 	<div class="batas">
-		<div id="kanan">
+		<div id="kanan" style="background-color=#fff">
 		
 		<h1>Event Mancing Sekarang</h1>
 		<div class="ijo" style="height:5px;width:100%;"></div>
 		<br>
 			<div align="center">
-		
-			</div>
-		<h1>Coming Soon</h1>
-		<div class="ijo" style="height:5px;width:100%;"></div>
-		<br>
-			<div align="center">			
-		
+			<?php
+			include "lomba_sekarang.php";
+			?>
 			</div>
 		
 		</div>

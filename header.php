@@ -21,12 +21,17 @@ $(document).ready(function(){
 	<div class="batas">
 	
 		<a href="index.php" class="menu_link" >HOME</a>
-    	<a href="pg_now_playing.php" class="menu_link" >NOW PLAYING</a>
-    	<a href="pg_coming_soon.php" class="menu_link" >COMMING SOON</a>
+    	<a href="pg_now_playing.php" class="menu_link" >Lomba Sekarang</a>
 		
 		<a href="#" class="menu_link" id="akun1" style="float:right;">MENU AKUN</a>
 		<?php
-		include "login.php";
+		session_start();
+		if(empty($_SESSION['id_user'])){
+			include "login.php";
+		}else{
+			include "menu_user.php";
+			$id_user = $_SESSION['id_user'];	
+		}
 		?>
 	</div>
 

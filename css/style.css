@@ -43,7 +43,7 @@ body{
 #menu2{
 	display:none;
 }
-#film{
+#lomba{
 	width:150px;
 	height:257px;
 	padding:20px;
@@ -52,14 +52,14 @@ body{
 	display:inline-block;
 	overflow:none;
 }
-#film a{
+#lomba a{
 	font-size:19px;
 	overflow:none;
 }
-#film img{
+#lomba img{
 	width:100%;
 }
-#film:hover{
+#lomba:hover{
 	background:#a6a6a6;
 	-webkit-transition:all ease 0.5s;
 	-moz-transition:all ease 0.5s;

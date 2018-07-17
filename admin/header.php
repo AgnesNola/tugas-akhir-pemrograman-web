@@ -25,7 +25,7 @@ $(document).ready(function(){
 	
 		<a href="index2.php" class="menu_link" >HOME</a>
     	<a href="lomba.php" class="menu_link" >Lomba</a>
-    	<a href="film.php" class="menu_link" >Peserta</a>
+    	<a href="pilih_juara.php" class="menu_link" >Pilih Juara</a>
     	<a href="logout.php" class="menu_link" >Logout</a>
 
 <?php
