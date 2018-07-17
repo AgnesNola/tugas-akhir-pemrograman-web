@@ -1,6 +1,7 @@
 <?php
 include "header.php";
 ?>
+
 <div id="main-tengah">
 	<div class="batas">
 		
@@ -58,9 +59,9 @@ include "header.php";
 				<?php echo $row['WAKTU_PERLOMBAAN']; ?>
 				</td>
 				<td >
-				<a href="film_hapus.php?id_film=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/sampah.gif" style="heigh:100%;"/></a>
-				<a href="edit_film.php?id_film=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/pensil.gif" style="heigh:100%;"/></a>
-				<a href="film_detail.php?id_film=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/lup.png" style="heigh:100%;"/></a>
+				<a href="hapus_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/sampah.gif" style="heigh:100%;"/></a>
+				<a href="edit_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/pensil.gif" style="heigh:100%;"/></a>
+				<a href="detail_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/lup.png" style="heigh:100%;"/></a>
 				</td>
 			<tr>
 		<?php
@@ -83,9 +84,9 @@ include "header.php";
 				<?php echo $row['WAKTU_PERLOMBAAN']; ?>
 				</td>
 				<td style="background:#fff;">
-				<a href="film_hapus.php?id_film=<?php echo $row['KD_PERLOMBAANPrimary']; ?>"><img src="../img/sampah.gif" style="heigh:100%;"/></a>
-				<a href="edit_film.php?id_film=<?php echo $row['KD_PERLOMBAANPrimary']; ?>"><img src="../img/pensil.gif" style="heigh:100%;"/></a>
-				<a href="film_detail.php?id_film=<?php echo $row['KD_PERLOMBAANPrimary']; ?>"><img src="../img/lup.png" style="heigh:100%;"/></a>
+				<a href="hapus_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAANPrimary']; ?>"><img src="../img/sampah.gif" style="heigh:100%;"/></a>
+				<a href="edit_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAANPrimary']; ?>"><img src="../img/pensil.gif" style="heigh:100%;"/></a>
+				<a href="detail_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAANPrimary']; ?>"><img src="../img/lup.png" style="heigh:100%;"/></a>
 				</td>
 			<tr>
 		<?php
