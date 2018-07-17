@@ -1,5 +1,29 @@
 <?php
 include "header.php";
+include "koneksi.php";
+
+function autonumber($id_terakhir, $panjang_kode, $panjang_angka) {
+ 
+    // mengambil nilai kode
+    $kode = substr($id_terakhir, 0, $panjang_kode);
+ 
+    // mengambil nilai angka
+    $angka = substr($id_terakhir, $panjang_kode, $panjang_angka);
+ 
+    // menambahkan nilai angka dengan 1
+    // kemudian memberikan string 0 agar panjang string angka menjadi 3
+    $angka_baru = str_repeat("0", $panjang_angka - strlen($angka+1)).($angka+1);
+ 
+    // menggabungkan kode dengan nilai angka baru
+    $id_baru = $kode.$angka_baru;
+ 
+    return $id_baru;
+}
+
+ $sql="select MAX(kd_user) from user";
+ $hasil=mysqli_query($connect, $sql);
+ $data=mysqli_fetch_array($hasil);
+ $MaxID = $data[0];
 ?>
 <div id="main-tengah">			
 	<div class="batas">
@@ -8,8 +32,16 @@ include "header.php";
 		<div class="ijo" style="height:5px;width:100%;"></div>
 		<br>
 		
-		<form method="post" action="proses_daftar.php" enctype="multipart/form-data">
+		<form method="post" action="tambah_user.php" enctype="multipart/form-data">
 		<table width="100%">
+			<tr>
+				<td width="40%">
+					Kode User
+				</td>
+				<td widtd="60%">
+					<?php echo autonumber($MaxID, 4, 3); ?>
+				</td>
+			</tr>
 			<tr>
 				<td width="40%">
 					Username
@@ -28,30 +60,13 @@ include "header.php";
 			</tr>
 			<tr>
 				<td>
-					Nama
+					Membership
 				</td>
 				<td>
-					<input type="text" name="nama" required/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Nomor Tel
-				</td>
-				<td>
-					<input type="text" name="text" required/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					VIP Level
-				</td>
-				<td>
-					<select>
-					<option name="vip" value="platinum">Platinum</option>
-					<option name="vip" value="gold">Gold</option>
-					<option name="vip" value="silver">Silver</option>
-					<option name="vip" value="bronze">Bronze</option>
+					<select name="membership">
+					<option  value="Gold">Gold</option>
+					<option  value="Silver">Silver</option>
+					<option  value="Bronze">Bronze</option>
 					</select>
 				</td>
 			</tr>
@@ -60,37 +75,31 @@ include "header.php";
 				</td>
 				<td style="border:1px solid #000;padding:10px;">
 					<p>
-					Platinum
-						<ul>
-							<li>Bebas Renang DI Kolam</li>
-						</ul>
-					</p>
-					<p>
 					Gold
 						<ul>
-							<li>Bebas Renang DI Kolam</li>
+							<li>Boleh renang di kolam</li>
 						</ul>
 					</p>
 					<p>
 					Silver
 						<ul>
-							<li>Bebas Renang DI Kolam</li>
+							<li>Boleh bawa pancing sendiri</li>
 						</ul>
 					</p>
 					<p>
 					Bronze
 						<ul>
-							<li>Bebas Renang DI Kolam</li>
+							<li>Tidak ada benefit khusus</li>
 						</ul>
 					</p>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					Alamat
+					Email
 				</td>
 				<td>
-					<textarea name="alamat" id="textarea" cols="35" rows="7" style="widtd:100%;" required></textarea>
+					<input type="text" name="email" required/>
 				</td>
 			</tr>
 			<tr>
@@ -110,14 +119,6 @@ include "header.php";
 				</td>
 			</tr>
 			<tr>
-				<td>
-					Foto
-				</td>
-				<td>
-					<input type="file" name="foto1"/>
-				</td>
-			</tr>
-			<tr>
 				<td colspan="2">
 					<div align="center">
 						<button type="submit">Daftar</button>
@@ -126,10 +127,7 @@ include "header.php";
 			</tr>
 		</table>
 	</form>
-	
-	
 		</div>
-		
 		<div id="kiri">
 		</div>
 	</div>
