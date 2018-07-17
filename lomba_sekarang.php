@@ -31,11 +31,11 @@
 			</tr>
 		<?php
 			include "config/koneksi.php";
-			$query = mysql_query("SELECT * FROM perlombaan");
+			$query = mysqli_query($konek,"SELECT * FROM perlombaan");
 			$i = 0;
 			$xy =0;
 			echo"<tr>";
-			while($row=mysql_fetch_array($query)){
+			while($row=mysqli_fetch_array($query)){
 				$i++;
 				echo"<td>".$row['NAMA_PERLOMBAAN']."</td>";
 				echo"<td>".$i."</td>";
@@ -45,8 +45,8 @@
 					
 				}else{
 				$id_user = $_SESSION['id_user'];
-				$query2 = mysql_query("SELECT * FROM detail_perlombaan WHERE KD_PERLOMBAAN='".$row['KD_PERLOMBAAN']."' AND KD_USER='".$id_user."'");
-				while($row2=mysql_fetch_array($query2)){
+				$query2 = mysqli_query($konek,"SELECT * FROM detail_perlombaan WHERE KD_PERLOMBAAN='".$row['KD_PERLOMBAAN']."' AND KD_USER='".$id_user."'");
+				while($row2=mysqli_fetch_array($query2)){
 					$xy = 1;
 				}
 				if($xy==1){
