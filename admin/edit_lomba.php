@@ -11,7 +11,7 @@ include "header.php";
 		<div align="center">
 		<form method="post" action="p_edit_lomba.php" enctype="multipart/form-data">
 		
-		<input type="text" name="id" value="<?php echo $id = $_GET['id_lomba']; ?>" readonly>
+		<input type="hidden" name="id" value="<?php echo $id = $_GET['id_lomba']; ?>" readonly>
 		<table>
 			<tr>
 				<td width="48%">
