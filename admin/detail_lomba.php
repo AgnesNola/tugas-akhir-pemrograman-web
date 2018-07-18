@@ -37,8 +37,16 @@ include "header.php";
 			</tr>
 		<?php
 		$id = $_GET['id_lomba'];
-		$query = mysqli_query($konek, "SELECT * FROM perlombaan WHERE kd_perlombaan='" . $id . "'");
-		$row = mysqli_fetch_array($query);
+		try { $str_Query = "SELECT * FROM perlombaan WHERE kd_perlombaan='" . $id . "'"; 
+		$str_final_Query =  $my_koneksi->prepare($str_Query); 
+				$str_final_Query->execute();      
+				} catch (PDOException $e) {  
+					die("Error: ".$e->getMessage()); 
+				} 
+				$row = $str_final_Query->fetch(); 
+		
+		//$query = mysqli_query($konek, "SELECT * FROM perlombaan WHERE kd_perlombaan='" . $id . "'");
+		//$row = mysqli_fetch_array($query);
 		?>
 			<tr>
 				<td>

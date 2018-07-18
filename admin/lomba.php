@@ -37,9 +37,18 @@ include "header.php";
 			$p=1;
 		}
 		$of=$batas*($p-1);
-		$query = mysqli_query($konek, "SELECT * FROM perlombaan ORDER BY NAMA_PERLOMBAAN ASC LIMIT $of,$batas");
+		
+				try { $str_Query = "SELECT * FROM perlombaan ORDER BY NAMA_PERLOMBAAN ASC LIMIT $of,$batas"; 
+				$str_final_Query =  $my_koneksi->prepare($str_Query); 
+				$str_final_Query->execute();      
+				} catch (PDOException $e) {  
+					die("Error: ".$e->getMessage()); 
+				} 
+				
+				
+		//$query = mysqli_query($konek, "SELECT * FROM perlombaan ORDER BY NAMA_PERLOMBAAN ASC LIMIT $of,$batas");
 		$j=1;
-		while($row=mysqli_fetch_array($query)){
+		while($row = $str_final_Query->fetch()){
 		if($j%2!=0){
 		?>
 			<tr>
@@ -98,8 +107,21 @@ include "header.php";
 			<td colspan="6">
 				<center>
 				<?php
-				$y=mysqli_query($konek, "select *from perlombaan");
-				$je=mysqli_num_rows($y);
+				try { $str_Query = "SELECT * FROM perlombaan ORDER BY NAMA_PERLOMBAAN ASC LIMIT $of,$batas"; 
+				$str_final_Query =  $my_koneksi->prepare($str_Query); 
+				$str_final_Query->execute();      
+				} catch (PDOException $e) {  
+					die("Error: ".$e->getMessage()); 
+				} 
+				$hasil = $str_final_Query->fetch(); 
+				$y=$hasil;
+				try { $str_Query = "SELECT COUNT(*) FROM perlombaan ORDER BY NAMA_PERLOMBAAN ASC LIMIT $of,$batas"; 
+				$str_final_Query =  $my_koneksi->prepare($str_Query); 
+				$str_final_Query->execute();      
+				} catch (PDOException $e) {  
+					die("Error: ".$e->getMessage()); 
+				} 
+				$je=$str_final_Query->fetchColumn(); 
 				$jum=ceil($je/$batas);
 				for($u=1;$u<=$jum;$u++){
 					if($u==$p){
