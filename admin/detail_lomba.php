@@ -1,13 +1,5 @@
 <?php
 include "header.php";
-//$id = $_GET['id_lomba'];
-//$query = mysqli_query($konek, "SELECT * FROM perlombaan WHERE kd_perlombaan='" . $id . "'");
-//$row = mysqli_fetch_array($query);
-//echo "Nama : " . $row['NAMA_PERLOMBAAN'];
-//echo "Kd : " . $row['KD_KATEGORI'];
-//echo "Tanggal : " . $row['TANGGAL_PERLOMBAAN']; 
-//echo "Waktu : " . $row['WAKTU_PERLOMBAAN'];
-//echo "Deskripsi : " . $row['DESKRIPSI_PERLOMBAAN'];
 ?>
 
 <div id="main-tengah">
@@ -34,6 +26,9 @@ include "header.php";
 				<th>
 				Deskripsi
 				</th>
+				<th>
+				Status
+				</th>
 			</tr>
 		<?php
 		$id = $_GET['id_lomba'];
@@ -44,9 +39,6 @@ include "header.php";
 					die("Error: ".$e->getMessage()); 
 				} 
 				$row = $str_final_Query->fetch(); 
-		
-		//$query = mysqli_query($konek, "SELECT * FROM perlombaan WHERE kd_perlombaan='" . $id . "'");
-		//$row = mysqli_fetch_array($query);
 		?>
 			<tr>
 				<td>
@@ -63,6 +55,9 @@ include "header.php";
 				</td>
 				<td>
 				<?php echo $row['DESKRIPSI_PERLOMBAAN']; ?>
+				</td>
+				<td>
+				<?php echo $row['status']; ?>
 				</td>
 			<tr>
 		</table>

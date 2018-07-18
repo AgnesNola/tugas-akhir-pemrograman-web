@@ -177,6 +177,28 @@ include "header.php";
 				</td>
 			</tr>
 			<tr>
+				<td>
+				Status
+				</td>
+				<td>
+				<?php
+				try { $str_Query = "SELECT status FROM perlombaan WHERE KD_PERLOMBAAN='" . $id = $_GET['id_lomba'] ."'"; 
+				$str_final_Query =  $my_koneksi->prepare($str_Query); 
+				$str_final_Query->execute();      
+				} catch (PDOException $e) {  
+					die("Error: ".$e->getMessage()); 
+				} 
+				$hasil = $str_final_Query->fetch(); 
+				?>
+				<select name="y_n" id="select" value="<?php echo $hasil[0]; ?>">
+				<option value="y">y</option>
+				<option value="n">n</option>
+				
+				</select>
+				
+				</td>
+			</tr>
+			<tr>
 				<td colspan="2">
 				<center>
 					<button style="width:26%;decoration:none;">Simpan</button>

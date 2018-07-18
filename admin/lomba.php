@@ -27,6 +27,12 @@ include "header.php";
 				Waktu
 				</th>
 				<th>
+				Deskripsi
+				</th>
+				<th>
+				Status
+				</th>
+				<th>
 				Editing
 				</th>
 			</tr>
@@ -67,6 +73,12 @@ include "header.php";
 				<td>
 				<?php echo $row['WAKTU_PERLOMBAAN']; ?>
 				</td>
+				<td>
+				<?php echo $row['DESKRIPSI_PERLOMBAAN']; ?>
+				</td>
+				<td>
+				<?php echo $row['status']; ?>
+				</td>
 				<td >
 				<a href="hapus_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/sampah.gif" style="heigh:100%;"/></a>
 				<a href="edit_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/pensil.gif" style="heigh:100%;"/></a>
@@ -93,9 +105,15 @@ include "header.php";
 				<?php echo $row['WAKTU_PERLOMBAAN']; ?>
 				</td>
 				<td style="background:#fff;">
-				<a href="hapus_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAANPrimary']; ?>"><img src="../img/sampah.gif" style="heigh:100%;"/></a>
-				<a href="edit_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAANPrimary']; ?>"><img src="../img/pensil.gif" style="heigh:100%;"/></a>
-				<a href="detail_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAANPrimary']; ?>"><img src="../img/lup.png" style="heigh:100%;"/></a>
+				<?php echo $row['DESKRIPSI_PERLOMBAAN']; ?>
+				</td>
+				<td style="background:#fff;">
+				<?php echo $row['status']; ?>
+				</td>
+				<td style="background:#fff;">
+				<a href="hapus_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/sampah.gif" style="heigh:100%;"/></a>
+				<a href="edit_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/pensil.gif" style="heigh:100%;"/></a>
+				<a href="detail_lomba.php?id_lomba=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/lup.png" style="heigh:100%;"/></a>
 				</td>
 			<tr>
 		<?php
@@ -104,7 +122,7 @@ include "header.php";
 		}
 		?>
 		<tr>
-			<td colspan="6">
+			<td colspan="8">
 				<center>
 				<?php
 				try { $str_Query = "SELECT * FROM perlombaan ORDER BY NAMA_PERLOMBAAN ASC LIMIT $of,$batas"; 
@@ -136,7 +154,7 @@ include "header.php";
 			</td>
 		</tr>
 		<tr>
-			<td colspan="6">
+			<td colspan="8">
 				<center>
 				<a href="tambah_lomba.php" style="text-decoration:none;"><div style="padding:8px;font-size: 23px;width:100%;color:#000;">Tambah perlombaan</div></a>
 				</center>
