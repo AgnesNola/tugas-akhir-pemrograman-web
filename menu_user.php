@@ -9,8 +9,8 @@
 	<?php 
 	include "config/koneksi.php";
 	$id_user=$_SESSION['id_user'];
-	$query = mysql_query("SELECT * FROM user WHERE KD_USER='$id_user'");
-	if($row=mysql_fetch_array($query)){
+	$query = mysqli_query($konek,"SELECT * FROM user WHERE KD_USER='$id_user'");
+	if($row=mysqli_fetch_array($query)){
 	echo $row['NAMA_USER']."<br>";
 	}
 	?>

@@ -37,7 +37,7 @@ include "header.php";
 			$p=1;
 		}
 		$of=$batas*($p-1);
-		$query = mysqli_query( "SELECT * FROM perlombaan ORDER BY NAMA_PERLOMBAAN ASC LIMIT $of,$batas");
+		$query = mysqli_query($konek, "SELECT * FROM perlombaan ORDER BY NAMA_PERLOMBAAN ASC LIMIT $of,$batas");
 		$j=1;
 		while($row=mysqli_fetch_array($query)){
 		if($j%2!=0){
@@ -82,7 +82,7 @@ include "header.php";
 				<?php echo $row['WAKTU_PERLOMBAAN']; ?>
 				</td>
 				<td style="background:#fff;">
-				<a href="lihat_peserta.php?id_lomba=<?php echo $row['KD_PERLOMBAANPrimary']; ?>"><img src="../img/lup.png" style="heigh:100%;"/></a>
+				<a href="lihat_peserta.php?id_lomba=<?php echo $row['KD_PERLOMBAAN']; ?>"><img src="../img/lup.png" style="heigh:100%;"/></a>
 				</td>
 			<tr>
 		<?php

@@ -34,8 +34,9 @@
 			$query = mysqli_query($konek,"SELECT * FROM perlombaan");
 			$i = 0;
 			$xy =0;
-			echo"<tr>";
 			while($row=mysqli_fetch_array($query)){
+				
+			echo"<tr>";
 				$i++;
 				echo"<td>".$row['NAMA_PERLOMBAAN']."</td>";
 				echo"<td>".$i."</td>";
@@ -47,9 +48,9 @@
 				$id_user = $_SESSION['id_user'];
 				$query2 = mysqli_query($konek,"SELECT * FROM detail_perlombaan WHERE KD_PERLOMBAAN='".$row['KD_PERLOMBAAN']."' AND KD_USER='".$id_user."'");
 				while($row2=mysqli_fetch_array($query2)){
-					$xy = 1;
+					$xy = $row['KD_PERLOMBAAN'];
 				}
-				if($xy==1){
+				if($xy==$row['KD_PERLOMBAAN']){
 					echo"<td>Sudah Ikut Lomba Ini</td>";
 				}else{
 					echo"<form action='daftar_lomba.php' method='post'>";
@@ -59,8 +60,8 @@
 				}
 				}
 				
-			}
 			echo"</tr>";
+			}
 		?>
 		</table>
 		</div>	
